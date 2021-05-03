@@ -1,7 +1,7 @@
 <template>
   <Navbar />
   <div class="home">
-    <h1>All Foods</h1>
+    <h1 class="mb-3">All Foods</h1>
   <Card />
   </div>
 </template>

@@ -1,52 +1,34 @@
 <template>
 <div class="container">
-<div class="row">
-  <div class="col-md-3">
- <div class="card" style="width: 18rem;">
-  <img src="../assets/burger.jpg" class="card-img-top">
+  <div class="component">
+ <div v-for="food in foods" class="card" style="width: 18rem;" :key="food.id">
+  <img :src="food.image" class="card-img-top" :alt="food.image">
   <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <h5 class="card-title">{{ food.food }}</h5>
+    <h4> - Ingredients - </h4>
+    <p class="card-text" v-for="ingredient in food.ingredients">{{ingredient}}</p>
   </div>
-</div>
-</div>
-  <div class="col-md-3">
- <div class="card" style="width: 18rem;">
-  <img src="../assets/sushi.jpg" class="card-img-top">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <h5 class="type">{{food.type}}</h5>
   </div>
-</div>
-</div>
-  <div class="col-md-3">
- <div class="card" style="width: 18rem;">
-  <img src="../assets/tacos.jpg" class="card-img-top">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-</div>
-  <div class="col-md-3">
- <div class="card" style="width: 18rem;">
-  <img src="../assets/pizza.jpg" class="card-img-top" >
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-</div>
 </div>
 </div>
 </template>
 
 <script>
 export default {
+  data(){
+    return{
+      foods:[],
+    }
+  },
+  mounted(){
+    fetch('http://localhost:3000/foods')
+    .then(res => res.json())
+    .then(data => {
+      this.foods = data
+      console.log(data)
+      })
+  }
 
 }
 </script>
@@ -59,4 +41,27 @@ export default {
   object-fit: cover;
 }
 
+.component{
+  margin: auto;
+  max-width: 1000px;
+}
+
+.card-text{
+  background: #333;
+  color: white;
+  border-radius: 14px;
+  display: inline-block;
+  margin-right: 10px;
+  padding: 5px;
+}
+.type{
+  background: rgb(24, 117, 24);
+  color: white;
+  padding: 10px;
+}
+.card{
+  display: inline-block;
+  margin-bottom: 10px;
+  margin: 5px 10px 10px 10px;
+}
 </style>
