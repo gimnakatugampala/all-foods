@@ -1,0 +1,8 @@
+{
+    "foods":[
+        {"id":1,"type":"Fast Food","food":"Burger","image":"./assets/burger.jpg","ingredients":["salads","bread"]},
+        {"id":2,"type":"Fast Food","food":"Pizza","image":"./assets/pizza.jpg","ingredients":["Cheese","bread","Sausages"]},
+        {"id":3,"type":"Healthy Food","food":"Taco","image":"./assets/tacos.jpg","ingredients":["Vegetables","Cheese","Meat"]},
+        {"id":4,"type":"Sea Food","food":"Sushi","image":"./assets/sushi.jpg","ingredients":["Vineger","Rice"]}
+    ]
+}
