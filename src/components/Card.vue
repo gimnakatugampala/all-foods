@@ -9,7 +9,6 @@
     <p class="card-text" v-for="ingredient in food.ingredients">{{ingredient}}</p>
   </div>
     <h5 class="type">{{food.type}}</h5>
-
         <router-link :to="{ name: 'FoodDetails' ,params:{id:food.id}}">
         <button class="btn btn-outline-success my-4">Read More</button>
       </router-link>
