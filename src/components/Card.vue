@@ -1,6 +1,6 @@
 <template>
 <div class="container">
-  <div class="component">
+  <div class="component" v-if="foods.length">
  <div v-for="food in foods" class="card" style="width: 18rem;" :key="food.id">
   <img :src="food.image" class="card-img-top" :alt="food.image">
   <div class="card-body">
@@ -9,7 +9,16 @@
     <p class="card-text" v-for="ingredient in food.ingredients">{{ingredient}}</p>
   </div>
     <h5 class="type">{{food.type}}</h5>
+
+        <router-link :to="{ name: 'FoodDetails' ,params:{id:food.id}}">
+        <button class="btn btn-outline-success my-4">Read More</button>
+      </router-link>
+
   </div>
+</div>
+<div v-else>
+  <img src="../assets/loading.gif" class="mt-5">
+  <h3>Loading...</h3>
 </div>
 </div>
 </template>
@@ -19,6 +28,7 @@ export default {
   data(){
     return{
       foods:[],
+      
     }
   },
   mounted(){
@@ -26,7 +36,6 @@ export default {
     .then(res => res.json())
     .then(data => {
       this.foods = data
-      console.log(data)
       })
   }
 
@@ -63,5 +72,12 @@ export default {
   display: inline-block;
   margin-bottom: 10px;
   margin: 5px 10px 10px 10px;
+  text-decoration: none;
+
+}
+.card-title{
+  background: rgb(187, 175, 175);
+  border-radius: 15px;
+  padding: 10px;
 }
 </style>
