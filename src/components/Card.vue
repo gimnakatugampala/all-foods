@@ -12,7 +12,6 @@
         <router-link :to="{ name: 'FoodDetails' ,params:{id:food.id}}">
         <button class="btn btn-outline-success my-4">Read More</button>
       </router-link>
-
   </div>
 </div>
 <div v-else>

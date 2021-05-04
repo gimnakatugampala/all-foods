@@ -19,11 +19,11 @@ const routes = [
     path:'/:catchAll(.*)',
     name:'NotFound',
     component:NotFound
+  },
+  {
+    path:'/foods/all-foods',
+    redirect:'/'
   }
-  // {
-  //   path:'/foods/all-foods',
-  //   redirect:'/'
-  // }
 ]
 
 const router = createRouter({
